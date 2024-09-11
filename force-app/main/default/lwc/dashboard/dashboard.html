@@ -1,0 +1,73 @@
+<template>
+    <div class="slds-grid">
+        <!-- Sidebar with Logo and Menu inside a lightning-card -->
+        <div class="sidebar slds-size_1-of-4">
+            <lightning-card>
+                <!-- Logo at the top -->
+                <div class="logo-container">
+                    <img src={logoUrl} alt="Company Logo" class="company-logo"/>
+                </div>
+                <!-- Sidebar Menu Items -->
+                <ul class="slds-list_vertical slds-m-around_medium">
+                    <li class="slds-list__item"><a href="#">Dashboard</a></li>
+                    <li class="slds-list__item"><a href="#">Drawer Management</a></li>
+                    <li class="slds-list__item"><a href="#">User Management</a></li>
+                    <li class="slds-list__item">
+                        <lightning-button-menu alternative-text="Settings" label="Settings" icon-name="utility:settings" class="settings-dropdown">
+                            <lightning-menu-item label="Database Settings" value="database_settings"></lightning-menu-item>
+                            <lightning-menu-item label="Preferences Settings" value="preferences_settings"></lightning-menu-item>
+                            <lightning-menu-item label="Account Settings" value="account_settings"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </li>
+                </ul>
+            </lightning-card>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content slds-size_3-of-4">
+            <lightning-card title={cardTitle} icon-name="standard:dashboard">
+                <div class="slds-grid slds-wrap slds-p-around_medium">
+                    <!-- Statistics Section -->
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-tile label="Number of Drawers">
+                            <p>{drawerCount}</p>
+                        </lightning-tile>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-tile label="Number of Folders">
+                            <p>{folderCount}</p>
+                        </lightning-tile>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-tile label="Number of Users">
+                            <p>{userCount}</p>
+                        </lightning-tile>
+                    </div>
+                </div>
+              
+                <!-- Quick Actions Section -->
+                <div class="slds-grid slds-wrap slds-p-around_medium">
+                    <lightning-card title="Quick Actions">
+                        <div class="button-container">
+                            <lightning-button label="Create New Drawer" icon-name="utility:add" variant="neutral" onclick={handleCreateDrawer}></lightning-button>
+                            <lightning-button label="Create New User" icon-name="utility:adduser" variant="neutral" onclick={handleCreateUser}></lightning-button>
+                            <lightning-button label="Import Folder" icon-name="utility:upload" variant="neutral" onclick={handleImportFolder}></lightning-button>
+                            <lightning-button label="Generate Audit Report" icon-name="utility:report_issue" variant="neutral" onclick={handleGenerateReport}></lightning-button>
+                        </div>
+                    </lightning-card>
+                    
+                </div>
+
+                <template if:true={allUserNames}>
+                    <lightning-card title="All Users" class="all-users-list">
+                        <ul>
+                            <template for:each={allUserNames} for:item="userName">
+                                <li key={userName}>{userName}</li>
+                            </template>
+                        </ul>
+                    </lightning-card>
+                </template>
+            </lightning-card>
+        </div>
+    </div>
+</template>

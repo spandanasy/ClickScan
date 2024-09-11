@@ -1,0 +1,179 @@
+/* Sidebar styling */
+.slds-grid > .slds-size_1-of-4
+{
+    flex-direction: row;
+}
+.slds-grid > .slds-size_1-of-4,
+.slds-grid > .slds-size_3-of-4
+{
+    display: flex;
+    flex-direction: column;
+}
+.sidebar lightning-card,
+.main-content lightning-card
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar
+{
+    padding: 0;
+    margin-left: 0;
+}
+.sidebar lightning-card {
+    width: 100%; 
+    background-color: white;
+    border-radius: 0; 
+    box-shadow: none; 
+    border: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.logo-container {
+    margin: 0;
+    text-align: start; 
+    padding-top: 0;
+}
+
+.company-logo {
+    max-width: 150px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.slds-list_vertical {
+    list-style: none;
+    
+    width: 100%; /* Make the menu take full width */
+    text-align: left; /* Align menu items to the left */
+}
+
+.slds-list__item {
+    margin-bottom: 15px;
+}
+
+.slds-list__item a {
+    text-decoration: none;
+    color: #0070d2;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slds-list__item a:hover {
+    background-color: #0070d2;
+    color: white;
+}
+
+/* Settings dropdown styling */
+.settings-dropdown {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.settings-dropdown lightning-button-menu {
+    width: 100%;
+}
+
+.settings-dropdown lightning-menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.settings-dropdown lightning-menu-item:hover {
+    background-color: #f4f6f9;
+    color: #0070d2;
+}
+
+/* Main content styling */
+.main-content {
+    padding: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.slds-card__header-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0070d2;
+}
+
+/* Tile styling */
+.slds-tile {
+    padding: 10px;
+    background-color: #f4f6f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.slds-tile label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.slds-tile p {
+    font-size: 1.5rem;
+    color: #0070d2;
+    font-weight: 500;
+}
+
+/* Quick actions buttons */
+.button-container lightning-button
+{
+    margin-right: 1rem;
+}
+.button-container lightning-button:last-child
+{
+    margin-right: 0;
+}
+.lightning-button {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #0070d2;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lightning-button:hover {
+    background-color: #005fb2;
+}
+
+.lightning-button:active {
+    background-color: #003e7e;
+}
+
+/* User list styling */
+.all-users-list {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.all-users-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.all-users-list li {
+    padding: 5px 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.all-users-list li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
