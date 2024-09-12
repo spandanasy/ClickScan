@@ -8,18 +8,33 @@
                     <img src={logoUrl} alt="Company Logo" class="company-logo"/>
                 </div>
                 <!-- Sidebar Menu Items -->
-                <ul class="slds-list_vertical slds-m-around_medium">
-                    <li class="slds-list__item"><a href="#">Dashboard</a></li>
-                    <li class="slds-list__item"><a href="#">Drawer Management</a></li>
-                    <li class="slds-list__item"><a href="#">User Management</a></li>
-                    <li class="slds-list__item">
-                        <lightning-button-menu alternative-text="Settings" label="Settings" icon-name="utility:settings" class="settings-dropdown">
-                            <lightning-menu-item label="Database Settings" value="database_settings"></lightning-menu-item>
-                            <lightning-menu-item label="Preferences Settings" value="preferences_settings"></lightning-menu-item>
-                            <lightning-menu-item label="Account Settings" value="account_settings"></lightning-menu-item>
-                        </lightning-button-menu>
-                    </li>
-                </ul>
+                <div class="sidebar-container">
+                    <!-- Dashboard Button -->
+                    <lightning-button class="slds-button" variant="base"
+                                      icon-name="utility:home" label="Dashboard" icon-position="left"
+                                      onclick={navigateToDashboard}></lightning-button>
+                
+                    <!-- Drawer Management Button -->
+                    <lightning-button class="slds-button" variant="base"
+                                      icon-name="utility:file" label="Drawer Management" icon-position="left"
+                                      onclick={navigateToDrawerManagement}></lightning-button>
+                
+                    <!-- User Management Button -->
+                    <lightning-button class="slds-button" variant="base"
+                                      icon-name="utility:groups" label="User Management" icon-position="left"
+                                      onclick={navigateToUserManagement}></lightning-button>
+                
+                    <!-- Settings Button with Dropdown -->
+                    <lightning-button-menu alternative-text="Settings" variant="base"
+                                           icon-name="utility:settings" 
+                                           label="Settings" 
+                                           icon-position="left" 
+                                           class="slds-button-menu">
+                        <lightning-menu-item label="Database Settings" value="dbSettings" icon-name="utility:database"></lightning-menu-item>
+                        <lightning-menu-item label="Preferences Settings" value="prefSettings" icon-name="utility:settings"></lightning-menu-item>
+                        <lightning-menu-item label="Account Settings" value="accSettings" icon-name="utility:user"></lightning-menu-item>
+                    </lightning-button-menu>
+                </div>
             </lightning-card>
         </div>
 
@@ -44,7 +59,7 @@
                         </lightning-tile>
                     </div>
                 </div>
-              
+            
                 <!-- Quick Actions Section -->
                 <div class="slds-grid slds-wrap slds-p-around_medium">
                     <lightning-card title="Quick Actions">
