@@ -1,0 +1,349 @@
+:host {
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* .slds-grid {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+} */
+
+.slds-grid > .slds-size_1-of-4 {
+    flex: 0 0 25%; /* Sidebar takes full width */
+    display: flex;
+    flex-direction: column;
+} 
+.slds-grid > .slds-size_3-of-4 {
+    /* flex: 1;/* Main content takes remaining width */ 
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden;
+    overflow-y: hidden; 
+} 
+.sidebar {
+    height: 100vh; /* Full height of the screen */
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.sidebar lightning-card {
+    flex: 1;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden ;
+}
+
+.logo-container {
+    margin: 0;
+    text-align: start;
+    padding-top: 0;
+}
+
+.company-logo {
+    max-width: 150px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    background-color: white; /* Default background color */
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    background-color: #3707e3;
+    color: #fff;
+    border-radius: 8px;
+}
+.nav-link{
+    transition: background-color 0.3s ease, border-raduis 0.3s ease;
+}
+.dropdown-label {
+    background-color: transparent;
+    cursor: pointer; /* Add pointer cursor for better UX */
+    padding-left: 10px;
+    padding-top: 10px;
+    color: black;
+    font-weight: 500;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    z-index: 1;
+    width: 100%;
+    color: black;
+    font-weight: 500;
+}
+
+/* Show the dropdown when checkbox is checked */
+input[type="checkbox"]:checked ~ .dropdown-content {
+    display: block;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 16px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: center;
+
+}
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Light grey hover effect */
+    border-radius: 6px;
+}
+.dropdown-content a:active {
+    background-color: #3707e3; /* Blue background on click */
+    color: white;
+}
+
+/* Ensure the checkbox itself remains hidden */
+.dropdown-checkbox {
+    display: none;
+}
+.dropdown-content a {
+    border-radius: 2px;
+}
+/* Ensure the checkbox itself remains hidden */
+.dropdown-checkbox {
+    display: none;
+}
+.dropdown-content a {
+    border-radius: 2px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    padding: 10px; 
+    background-color: #f9f9f9; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.slds-theme_shade {
+    background-color: #f3f2f2;
+    /* height: 100%; */
+} 
+
+ .slds-theme_default {
+    background-color: #ffffff;
+} 
+
+
+/* drawer manager header css */
+
+.drawer-management-container {
+    
+    padding: 1rem;
+    margin-right:10px;
+  
+    
+    background-color:white; 
+   /* box-shadow: 0 2px 4px 8px rgba(0, 0, 0, 0.1);  */
+   width: 100%; 
+} 
+
+.drawer-management-divider {
+    /* margin: 2rem 0; */
+    margin: 2rem 0;
+    
+    border: 0;
+    border-top: 2px solid #ccc; /* Horizontal line styling */
+    
+}
+
+/* drawer information css */
+.custom-rounded-container {
+
+    background-color: white; /* Light background */
+    padding: 1rem; /* Padding inside the box */
+    border-radius: 10px 10px 0 0; /* Rounded top-left, top-right, and bottom-right corners */
+    border: 1px solid #ddd;    /*  Optional: Light border for better visibility  */
+    width: justify-content;
+}
+
+  td {
+     border: 0px solid #dddddd; 
+     text-align: center; 
+     /* padding: 8px;  */
+  
+  }  
+
+  .custom-thead th {
+    padding: 0 20px; /* Adjust left and right padding for equal spacing */
+    text-align: center; /* Center-align text, adjust as needed */
+    vertical-align: middle; /* Vertically center the content */
+    background-color: lightblue;
+   
+
+}
+
+
+.slds-table th:first-child {
+    border-top-left-radius: 10px; /*Top-left corner rounded*/
+}
+
+.slds-table th:last-child {
+    border-top-right-radius: 10px; /* Top-right corner rounded*/
+} 
+
+.slds-scrollable_y {
+    max-height: 20rem;
+    overflow-y: auto;
+
+}
+
+.slds-table thead {
+    background-color: lightblue;
+}
+
+/* Action div containr */
+.custom-align-right {
+    position: absolute;
+    right: 100px;
+}
+
+.custom-row th {
+    background-color: lightblue ;
+    text-align: center;
+}
+/* Container for the entire table */
+.table-scroll-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px; /* Control the height of the scrollable area */
+    overflow: hidden; /* Prevent any outer scrollbars */
+}
+
+/* Make the header sticky at the top */
+.sticky-header {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    background-color: lightblue;
+
+}
+
+/* Set the height of the scrollable content */
+.table-body-scroll {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: scroll; /* Only the body should scroll, scrollbar appears as needed */
+    display: block;
+}
+
+/* Customize the scrollbar */
+
+/* Width of the scrollbar */
+.table-body-scroll::-webkit-scrollbar {
+    width: 3px; /* Adjust scrollbar width here */
+}
+
+/* Scrollbar track (background of scrollbar) */
+.table-body-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light background for the scrollbar track */
+}
+
+/* Scrollbar thumb (draggable part) */
+.table-body-scroll::-webkit-scrollbar-thumb {
+    background: #888; /* Darker background for the thumb */
+    border-radius: 10px; /* Rounded corners for smoother look */
+}
+
+/* Scrollbar thumb hover effect */
+.table-body-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker background on hover */
+}
+
+
+/* 
+Action-button-style 
+/* Custom styles for the dropdown if needed */
+/* Optional: Align the dropdown more to the left if necessary */
+ .button-wrapper {
+    position: relative; /* Keeps the button fixed at the specified location */
+    right: 100px; /* Adjust this value to move the button horizontally */
+   
+    z-index: 1; /* Ensures the button stays on top of other content */
+}
+
+.dropdown-menu {
+    
+    position: absolute;
+    top: 17px; /* Start the dropdown just below the button */
+    left: -57px; /* Align the dropdown to the left of the button */
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    margin-top: 15px; /* Adds a small gap between the button and the dropdown */
+    width: auto; /* Adjust the width based on the content */
+    border: 1px solid #ddd; /* Optional: Add a border for the dropdown */
+    
+}
+.custom-hr {
+    width: 100%; /* Make the horizontal line full width */
+    border: 1px solid #ccc; /* Adjust the border thickness and color as per your need */
+    margin-top: 1rem; /* Add space around if necessary */
+}
+
+/* remove model css */
+
+
+.selected-row {
+    background-color: blue ; /* Ensures the row stays highlighted */
+    color: white ; /* Changes text color for contrast */
+}
+.custom-table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Combines borders */
+    margin: 0; /* Remove any default margin */
+}
+
+.custom-table th, .custom-table td {
+    /* border: 1px solid #ccc;  */
+    padding: 3px; /* Padding for cells */
+    text-align: center; /* Align text to the left */
+    margin-left: 0px;
+}
+
+.custom-table th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+}
+
+.custom-table tr:hover {
+    background-color: rgba(0, 0, 255, 0.1); /* Light blue on hover */
+}
+

@@ -1,0 +1,452 @@
+.slds-theme_default {
+  background-color: #ffffff;
+}
+
+.slds-theme_shade {
+  background-color: #0070d2;
+}
+
+.slds-text-color_inverse {
+  color: #ffffff;
+}
+
+.slds-text-color_weak {
+  color: #54698d;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: white; /* Default background color */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: blue; /* Hover background color */
+  color: white; /* Text color on hover */
+}
+
+.nav-link:active {
+  background-color: #3707e3;
+  color: white;
+}
+
+.drawer-icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-link-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 0;
+  background-color: white; /* Matches nav-link background */
+  min-width: 200px; /* Increased width */
+  border-radius: 4px; /* Matches nav-link border radius */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Use checkbox to toggle dropdown */
+.dropdown-checkbox {
+  display: none;
+}
+
+.dropdown-label {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.dropdown-checkbox:checked + label + .dropdown-content {
+  display: block; /* Show dropdown when checkbox is checked */
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: black; /* Text color set to black */
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: blue; /* Matches nav-link hover */
+  color: white; /* Text color on hover */
+}
+
+.dropdown-content a:active {
+  background-color: #3707e3;
+  color: white;
+}
+
+.drawerinformation-fields {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+
+.slds-col.slds-size_1-of-3 {
+  display: block;
+  max-width: 100%;
+}
+
+.right-align-absolute.slds-col.slds-size_2-of-3 {
+  flex: 1;
+  max-width: 80%;
+}
+
+.slds-table {
+  width: 100%;
+}
+
+.slds-table thead th,
+.slds-table tbody td {
+  text-align: left;
+}
+
+.slds-m-bottom_medium {
+  margin-bottom: 20px;
+}
+
+.right-align-absolute {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.user-info-container {
+  margin-right: 0;
+  margin-left: 315px;
+  width: 625px;
+  position: absolute;
+  border-radius: 6px;
+  border-width: 1px;
+  margin-top: 30px;
+  border-color: lightgray;
+}
+
+.user-icon {
+  font-size: 24px;
+  height: 172px;
+  margin-left: 360px;
+  position: absolute;
+}
+
+.slds-button_icon-inverse {
+  color: #ffffff;
+}
+
+.slds-button_icon-inverse:hover {
+  background-color: #005bb5;
+}
+
+.slds-button_icon {
+  padding: 0;
+}
+
+.main-div {
+  background-color: #ffffff;
+  display: flex;
+  width: 100%;
+}
+
+.container {
+  width: 100%; /* Ensure the container takes full width */
+  padding: 0; /* Remove any padding that might affect alignment */
+  margin: 0; /* Remove any margin that might affect alignment */
+}
+
+.header-button-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the header and the button */
+  align-items: center; /* Align items vertically in the center */
+  margin-bottom: 1rem; /* Add spacing between the container and any content below it */
+}
+
+.slds-button {
+  margin-left: auto; /* Push the button further to the right */
+}
+
+.actions {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.slds-box {
+  border-radius: 0.25rem;
+}
+
+.slds-theme_shade {
+  background-color: #abc7ff;
+}
+
+.slds-theme_default {
+  background-color: #f4f6f9;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.user-details div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.c-user_management_user_management {
+  background-color: #82a5e7;
+  border-radius: 5px;
+  border-color: #0000000c;
+}
+
+.first-page {
+  display: flex; /* Enables flexbox */
+  justify-content: space-between; /* Adjusts spacing between divs (optional) */
+}
+
+.container {
+  display: flex; /* Aligns child elements in a row */
+  align-items: center; /* Vertically aligns items in the center */
+  justify-content: space-between; /* Distributes space between items */
+}
+
+.header-button-container {
+  margin: 0; /* Removes default margins */
+  padding: 10px; /* Adds padding around content (optional) */
+}
+
+.slds-text-heading_large {
+  font-weight: bold; /* Applies bold font weight */
+  margin-top: -21px;
+  text-align: justify;
+  width: 312px;
+}
+
+.slds-table {
+  border-collapse: separate; /* Ensures that borders are distinct */
+  border-spacing: 0; /* Removes default spacing between borders */
+  border: 1px solid #0000000c; /* Adds a solid border (adjust color and thickness as needed) */
+  border-radius: 5px 5px 0 0; /* Rounds top-left and top-right corners (adjust radius as needed) */
+}
+
+.custom-row th {
+  background-color: #abc7ff;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.header-button-create {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  padding-right: 20px; /* Add some right padding */
+  margin-top: 0px; /* Align to top if needed */
+  width: 100%; /* Ensures the background stretches to the full width */
+}
+
+.create-user-button {
+  background-color: #213ce8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.global-main-header {
+  margin-top: -66px;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 16px;
+  border-radius: 5px;
+  margin-left: 314px;
+  width: 66%;
+}
+
+.slds-grid {
+  margin-top: 4px;
+}
+
+.company-logo {
+  max-width: 90%;
+}
+
+.slds-col {
+  background-color: white;
+}
+
+.slds-input {
+  margin-top: 29px;
+}
+
+.slds-hint-parent {
+  color: rgb(6, 5, 8);
+}
+
+.header-line {
+  height: 1px;
+  background-color: #6e6e6e;
+  position: absolute;
+  margin-bottom: -67px;
+  margin-left: -5px;
+  width: 78%;
+}
+
+.user-info-container {
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  margin-left: 361px;
+  margin-top: -34px;
+}
+
+.slds-box {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.slds-box p {
+  margin: 10px 0; /* Adds space between text rows */
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px; /* Space between action buttons */
+}
+
+.custom-button {
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.user-management-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data-container {
+  max-height: 500px; /* Set a maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Border for the entire container */
+  border-radius: 5px; /* Slight rounding of corners */
+  background-color: white; /* Optional background color */
+  padding: 10px; /* Padding inside the container */
+}
+
+.user-names-container {
+  margin-top: 20px; /* Space between user info and user list */
+}
+
+.user-table-container {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 400px; /* Set a maximum height for the user table */
+  border: 1px solid #ddd; /* Border for the table */
+  border-radius: 5px; /* Slight rounding of corners */
+}
+
+.grid {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  /* width: 25%; */
+  background-color: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 176px;
+}
+
+.logo-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.menu {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  gap: 16px;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+/* .dropdown-checkbox:checked + .dropdown-label + .dropdown-content {
+  display: block; /* Show dropdown when checkbox is checked 
+}
+
+.dropdown-content a:hover {
+  background-color: #e0e0e0; /* Light hover background 
+  width: 10%;
+  margin-top: 61px;
+  margin-left: 27px;
+} */
+
+.user-info-container {
+  margin-right: 0;
+  margin-left: 315px;
+  width: 625px;
+  position: absolute;
+  border-radius: 6px;
+  border-width: 1px;
+  margin-top: 30px;
+  border-color: lightgray;
+}
+
+/* Ensuring all elements have a consistent box-sizing */
+* {
+  box-sizing: border-box; /* Makes sizing easier and more predictable */
+}

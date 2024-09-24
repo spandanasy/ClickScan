@@ -1,8 +1,314 @@
 <template>
-    <lightning-card>
-        <div class="slds-p-around_medium">
-            <h1>This is the Drawer Management Page</h1>
-            <p>Here, you can manage all your drawers.</p>
-        </div>
-    </lightning-card>
+<c-layout-component>
+    <template if:true={isDrawerManagementVisible}>
+        <div> 
+
+                  <div class="slds-grid slds-grid_align-spread slds-m-bottom_medium">
+                      <h2 class="slds-text-heading_large" style="font-weight: bold;">Drawer Management</h2>
+
+                      <div>
+                          <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-size: 16px;font-weight:bold; cursor: pointer;margin-right:20px" onclick={navigateToCreateNewDrawer}>
+                              Create New Drawer
+                            </button>
+                          <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-size: 16px;font-weight:bold; cursor: pointer;" onclick={navigateToimportFolder}>
+                              Import Folder
+                          </button>
+                      </div>
+                  </div>
+                  <h3 class="slds-text-heading_medium slds-m-bottom_medium">Manage drawer in your organization.</h3>
+                  <hr class="drawer-management-divider"/>
+                  
+              <div class="slds-grid slds-wrap " >
+
+                  <div class="slds-col slds-size_1-of-4 slds-box slds-theme_default slds-m-right_medium">
+                      <!--search and drawerlist-->
+                         
+                      <div >
+                          <div class="slds-m-bottom_medium">
+                              <input type="text" class="slds-input" placeholder="Search" oninput={handleSearch}/>
+                          </div>
+                     
+                          <!-- <table class="slds-table slds-table_cell-buffer slds-table_bordered" 2nd html table> -->
+                              <div class="table-scroll-container">
+                                  <table class="slds-table">
+                                      <thead>
+                                          <tr class="slds-text-title_caps custom-row sticky-header">
+                                              <th scope="col">
+                                                  <button class="slds-button slds-button_icon slds-button_icon-inverse slds-m-right_small" onclick={handleSortByName}>
+                                                      <lightning-icon icon-name="utility:sort" alternative-text="Sort by Account Name" size="small"></lightning-icon>
+                                                      <span class="slds-assistive-text">Sort by Account Name</span>
+                                                  </button>
+                                                  <div class="slds-truncate" title="Account Name">Drawers</div>
+                                              </th>
+                                              <th scope="col">
+                                                  <button class="slds-button slds-button_icon slds-button_icon-inverse slds-m-right_small" onclick={handleSortByDate}>
+                                                      <lightning-icon icon-name="utility:sort" alternative-text="Sort by Create Date" size="small"></lightning-icon>
+                                                      <span class="slds-assistive-text">Sort by Create Date</span>
+                                                  </button>
+                                                  <div class="slds-truncate" title="Create Date">Create Date</div>
+                                              </th>
+                                          </tr>
+                                      </thead>
+                                  </table>
+                                  <!-- Scrollable body -->
+                                  <div class="table-body-scroll">
+                                      <!-- 21 - 09-2024 at night 22:42 -->
+                                      <table class="custom-table">
+                                          
+                                          <tbody>
+                                              <template for:each={filteredUsers} for:item="user">
+                                                  <tr key={user.id} data-id={user.id} onclick={handleUserClick}>
+                                                      <td title={user.username}>{user.username}</td>
+                                                      <td title={user.createdDate}>{user.createdDate}</td>
+                                                  </tr>
+                                              </template>
+                                          </tbody>
+                                      </table>
+                                      
+                                  </div>
+                              </div>
+
+                      </div>
+  
+                  </div>
+                      
+                      <!-- Drawer Information -->
+               
+                  <div class="slds-grid slds-grid_align-start slds-p-right_medium custom-rounded-container" style="width: 73%;">
+
+                      <div class="slds-size_1-of-1 slds-p-left_medium ">
+                          <div class="slds-grid slds-grid_align-spread slds-m-bottom_medium">
+                               
+                            <div style="display: block;">
+                             
+                              <!-- <h3 class="slds-text-heading_medium slds-m-bottom_medium" style="font-weight: bold;">Drawer Information</h3> -->
+                              <h2 style="font-weight:bold;font-size:25px;">Drawer Information</h2>
+                              <div class="slds-m-bottom_medium">
+                                  <!-- <template if:true={selectedUser}> -->
+                                      <div class="user-info-container" >
+                                        
+                                       
+                                         <div class="slds-box slds-theme_shade" style="background-color:white; border:0">
+                                            
+
+                                            
+                                            <div class="user-details">
+                                                <div style="margin-bottom: 16px;">
+                                                   <label for="username"> <h2 style="display: inline;">Name:</h2></label>
+                                                    <span style="margin-left: 55px;">{selectedUser.username}</span>
+                                                </div>
+                                               
+                                                <div style="margin-bottom: 16px;">
+                                                    <label for="description"><h2 style="display: inline;">Description:</h2></label>
+                                                    <span style="margin-left: 25px;">{selectedUser.description}</span>
+                                                </div>
+                                                <div style="margin-bottom: 16px;">
+                                                    <label for="created-date"><h2 style="display: inline;">Created Date:</h2></label>
+                                                    <span style="margin-left: 25px;">{selectedUser.createdDate}</span>
+                                                </div>
+                                               
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                 
+                                 
+                              </div>
+                          </div>
+                            <!-- Action -->
+                          
+                        
+                              <!-- Action button with dropdown icon -->
+                               
+                              <div class="button-wrapper" >
+                                  <!-- Action button with dropdown icon -->
+                                  <button class="slds-button slds-button_neutral" onclick={handleClick} aria-haspopup="true" title="Actions">
+                                      Action
+                                      <lightning-icon icon-name="utility:down" alternative-text="Dropdown Icon" size="x-small"></lightning-icon>
+                                  </button>
+                          
+                                  <!-- Dropdown menu -->
+                                  <div class="slds-dropdown slds-dropdown_left dropdown-menu" if:true={isDropdownVisible}>
+                                      <ul class="slds-dropdown__list" role="menu">
+                                          <li class="slds-dropdown__item" role="presentation">
+
+                                              <a role="menuitem" tabindex="-1" href="javascript:void(0);" onclick={NavigatetoEdit}>
+                                                  <span class="slds-truncate" title="Edit Drawer">Edit Drawer</span>
+                                              </a>
+                                          </li>
+                                          <li class="slds-dropdown__item" role="presentation">
+                                              <a  role="menuitem" tabindex="-1" onclick={openModal}>
+                                                  <span class="slds-truncate" title="Remove Drawer">Remove Drawer</span>
+                                              </a>
+                                          </li>
+                                          <li class="slds-dropdown__item" role="presentation">
+                                              <a  role="menuitem" tabindex="-1" onclick={openDuplicateModal}>
+                                                  <span class="slds-truncate" title="Duplicate Drawer">Duplicate Drawer</span>
+                                              </a>
+                                          </li>
+                                          <li class="slds-dropdown__item" role="presentation">
+                                              <a role="menuitem" tabindex="-1" onclick={openPurge}>
+                                                  <span class="slds-truncate" title="Purge Drawer">Purge Drawer</span>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>                                   
+                                  <template if:true={isModalOpen}>
+                                      <!-- Backdrop -->
+                                      <div class="slds-backdrop slds-backdrop_open"></div>
+                                  
+                                      <!-- Modal Container -->
+                                      <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                                          <div class="slds-modal__container" style="border: none; width: 800px; border-radius: 10px;"> <!-- Reduced width and added rounded corners -->
+                                              <!-- Modal Header -->
+                                              <header class="slds-modal__header" style="border-bottom: none;">
+                                                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                                      <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                                      <span class="slds-assistive-text">Close</span>
+                                                  </button>
+                                                  <div class="header-container" style="display: flex; align-items: center;">
+                                                      <!-- Remove icon next to the heading -->
+                                                      <lightning-icon icon-name="utility:delete" alternative-text="delete" size="medium" class="delete-icon" style="margin-right: 10px;"></lightning-icon>
+                                                      <h2 class="slds-text-heading_medium">Remove this drawer</h2>
+                                                  </div>
+                                              </header>
+                                  
+                                              <!-- Modal Body -->
+                                              <div class="slds-modal__content slds-p-around_medium" style="border-bottom: none;">
+                                                  <p style="font-size:large;">Are you sure you want to remove drawer student_records? This action cannot be undone.</p>
+                                              </div>
+                                  
+                                              <!-- Modal Footer -->
+                                              <footer class="slds-modal__footer" style="border-top: none;">
+                                                  <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+                                                  <button class="slds-button slds-button_destructive" style="background-color: orange; color: white;" onclick={handleRemove}>Remove</button>
+                                              </footer>
+                                          </div>
+                                      </section>
+                                  </template>
+
+                                  
+                                  <template if:true={isDuplicateModalOpen}>
+                                      <!-- Backdrop -->
+                                      <div class="slds-backdrop slds-backdrop_open"></div>
+                                  
+                                      <!-- Modal Container -->
+                                      <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                                          <div class="slds-modal__container" style="border: none; width: 500px; border-radius: 10px;"> <!-- Reduced width and added rounded corners -->
+                                              <!-- Modal Header -->
+                                              <header class="slds-modal__header" style="border-bottom: none;">
+                                                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeDuplicateModal}>
+                                                      <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                                      <span class="slds-assistive-text">Close</span>
+                                                  </button>
+                                                  <div class="header-container" style="display: flex; align-items: center;">
+                                                      <!-- No icon here -->
+                                                      <h2 class="slds-text-heading_medium">Duplicate this drawer</h2>
+                                                  </div>
+                                              </header>
+                                  
+                                              <!-- Modal Body -->
+                                              <div class="slds-modal__content slds-p-around_medium" style="border-bottom: none;">
+                                                  <!-- Name Field -->
+                                                  <lightning-input label="Name" placeholder="Enter drawer name" class="slds-m-bottom_medium"></lightning-input>
+                                  
+                                                  <!-- Description Field with gap -->
+                                                  <lightning-textarea label="Description" placeholder="Enter description" class="slds-m-top_medium"></lightning-textarea>
+                                              </div>
+                                  
+                                              <!-- Modal Footer -->
+                                              <footer class="slds-modal__footer" style="border-top: none;">
+                                                  <button class="slds-button slds-button_neutral" onclick={closeDuplicateModal}>Cancel</button>
+                                                  <button class="slds-button" style="background-color: blue; color: white; border-radius: 10px;   padding: 0.5rem 2rem; font-size: medium; width: 130px; height: 50px;" onclick={handleDuplicate}>Duplicate</button>
+                                              </footer>
+                                          </div>
+                                      </section>
+                                  </template>
+                                  <template if:true={isPurgeOpen}>
+                                      <!-- Backdrop -->
+                                      <div class="slds-backdrop slds-backdrop_open"></div>
+                                  
+                                      <!-- Modal Container -->
+                                      <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                                          <div class="slds-modal__container" style="border: none; width: 800px; border-radius: 10px;"> 
+                                              <!-- Reduced width and added rounded corners -->
+                                  
+                                              <!-- Modal Header -->
+                                              <header class="slds-modal__header" style="border-bottom: none;">
+                                                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                                      <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                                      <span class="slds-assistive-text">Close</span>
+                                                  </button>
+                                                  <div class="header-container" style="display: flex; align-items: center;">
+                                                      <h2 class="slds-text-heading_medium">Purge this drawer</h2> <!-- Updated header text -->
+                                                  </div>
+                                              </header>
+                                  
+                                              <!-- Modal Body -->
+                                              <div class="slds-modal__content slds-p-around_medium" style="border-bottom: none;">
+                                                  <p style="font-size:large;">Are you sure you want to purge drawer d test? This action cannot be undone.</p> <!-- Updated body content -->
+                                              </div>
+                                  
+                                              <!-- Modal Footer -->
+                                              <footer class="slds-modal__footer" style="border-top: none;">
+                                                  <button class="slds-button slds-button_neutral" onclick={isCancel}>Cancel</button> <!-- Cancel button -->
+                                                  <button class="slds-button slds-button_destructive" style="background-color: orange; color: white;" onclick={handlePurge}>Purge</button> <!-- Updated Remove to Purge -->
+                                              </footer>
+                                          </div>
+                                      </section>
+                                  </template>
+                                  
+                                  
+                                    <!-- remove popup end -->
+                              </div>
+                              <!-- Actionnnnnnn -->
+                           </div>
+
+                          
+                           <div style="margin-top:30px">
+                            
+                              
+                                                      <!-- <h2 class="slds-text-heading_small slds-m-bottom_small" style="margin-left:5px;font-weight:bold">Fields</h2> -->
+                                                      <h3 class="slds-text-heading_medium slds-m-bottom_medium" style="font-weight: bold;">Fields</h3>
+                                                  
+                                                      <table class="slds-table">
+                                                          <thead style="height: 50px;" class="custom-thead">
+                                                              <tr class="custom-table-header">
+                                                                  <th>Field Name</th>
+                                                                  <th>Field Type</th>
+                                                                  <th>Width</th>
+                                                                  <th>Required</th>
+                                                                  <th>Unique</th>
+                                                                  <th>Action</th>
+                                                              </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td>name</td>
+                                                                  <td>Text</td>
+                                                                  <td>100</td>
+                                                                  <td>Yes</td>
+                                                                  <td>No</td>
+                                                                  <td>progrss</td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td>roll_no</td>
+                                                                  <td>Text</td>
+                                                                  <td>5</td>
+                                                                  <td>Yes</td>
+                                                                  <td>Yes</td>
+                                                                  <td>progrss</td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>  
+
+                      </div>
+                            
+                  </div>
+              </div>
+                  </div>
+              </div>
+        
+      </template>
+</c-layout-component>
 </template>

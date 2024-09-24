@@ -1,8 +1,123 @@
 <template>
-    <lightning-card>
-        <div class="slds-p-around_medium">
-            <h1>This is the Drawer Management Page</h1>
-            <p>Here, you can manage all your drawers.</p>
+    <c-layout-component>
+        <div class="slds-col slds-size_1-of-1 slds-p-around_medium">
+            <div class="container">
+                <div class="header-button-container" style="display: block;">
+                    <h2 class="slds-text-heading_large" style="font-weight: bold;">User Management</h2>
+                    <h2 style="font-size: 18px;">Manage Users and their Permissions</h2>
+                </div>
+
+                <div class="header-button-create">
+                    <button class="create-user-button">
+                        + Create New User
+                    </button>
+                </div>
+            </div>
+            <div class="first-page">
+                <div class="slds-grid slds-wrap">
+                    <div class="drawerinformation-fields" style="border: 0px;">
+                        <div>
+                            <div class="slds-m-bottom_medium">
+                                <input type="text" class="slds-input" placeholder="Search" oninput={handleSearch} />
+                            </div>
+
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                <thead>
+                                    <tr class="slds-text-title_caps custom-row">
+                                        <th scope="col">
+                                            <button class="slds-button slds-button_icon slds-button_icon-inverse slds-m-right_small" onclick={handleSortByName}>
+                                                <lightning-icon icon-name="utility:sort" alternative-text="Sort by Account Name" size="small"></lightning-icon>
+                                                <span class="slds-assistive-text">Sort by Account Name</span>
+                                            </button>
+                                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <button class="slds-button slds-button_icon slds-button_icon-inverse slds-m-right_small" onclick={handleSortByDate}>
+                                                <lightning-icon icon-name="utility:sort" alternative-text="Sort by Create Date" size="small"></lightning-icon>
+                                                <span class="slds-assistive-text">Sort by Create Date</span>
+                                            </button>
+                                            <div class="slds-truncate" title="Create Date">Create Date</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={filteredUsers} for:item="user">
+                                        <tr key={user.id} class="slds-hint-parent standby" data-id={user.id} onclick={handleUserClick}>
+                                            <td class="slds-truncate" title={user.username}>{user.username}</td>
+                                            <td class="slds-truncate" title={user.created_at}>{user.created_at}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- User Information -->
+                    <template if:true={selectedUser}>
+                        <div class="user-info-container" style="border-radius: 5px; border: 1px solid lightgrey; background-color: white; padding: 15px;">
+                            <h2 style="font-weight:bold;font-size:25px;">User Information</h2>
+                            <div class="image-container">
+                                <img src={iconUrl} alt="User Icon" class="user-icon" />
+                            </div>
+                            <div>
+                                <!-- <template if:true={userData}> -->
+                                    <p style="margin-bottom: 10px;"><strong>Username:</strong> {userData.username}</p>
+                                    <p style="margin-bottom: 10px;"><strong>Email:</strong> {userData.email}</p>
+                                    <p style="margin-bottom: 10px;"><strong>Description:</strong> {userData.description}</p>
+                                    <p style="margin-bottom: 10px;"><strong>Created Date:</strong> {userData.created_at}</p>
+                                    <img src={userData.thumbnail} alt="User Thumbnail" />
+                                <!-- </template> -->
+                            </div>
+                            <div class="actions" style="margin-top: 10px;">
+                                <lightning-button class="custom-button reset-password-button" label="Reset Password" onclick={handleResetPassword}></lightning-button>
+                                <lightning-button class="custom-button delete-user-button" icon-name="utility:delete" icon-position="left" onclick={handleDeleteUser}></lightning-button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="global-main-header">
+                <div class="slds-box slds-theme_shade slds-m-bottom_medium">
+                    <div class="slds-grid slds-m-bottom_small">
+                        <lightning-input type="checkbox" label="Global Permissions" checked class="slds-m-right_small"></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <template for:each={globalPermissions} for:item="permission">
+                        <div key={permission} class="slds-col slds-size_1-of-3 slds-p-around_x-small">
+                            <lightning-input type="checkbox" label={permission} checked></lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="slds-box slds-theme_shade" style="margin-top: auto;">
+                    <div class="slds-grid slds-m-bottom_small">
+                        <lightning-input type="checkbox" label="Drawer Permissions" checked class="slds-m-right_small"></lightning-input>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <template for:each={drawerPermissions} for:item="drawer">
+                            <div key={drawer.id} class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                                <div class="slds-box slds-box_x-small slds-theme_default slds-grid slds-align_absolute-center">
+                                    <lightning-input type="checkbox" label={drawer.label} checked class="slds-m-right_auto"></lightning-input>
+                                    <button class="slds-button slds-button_icon" onclick={toggleDropdown} data-id={drawer.id}>
+                                        <lightning-icon icon-name={drawer.iconName} size="x-small" class="slds-m-left_auto"></lightning-icon>
+                                    </button>
+                                </div>
+                                <template if:true={drawer.isOpen}>
+                                    <div class="container slds-m-top_small">
+                                        <div class="slds-box slds-box_x-small slds-theme_shade checkbox-class">
+                                            <label class="slds-p-around_x-small"><input type="checkbox" checked>Display</label>
+                                            <label class="slds-p-around_x-small"><input type="checkbox" checked>Create Folder</label>
+                                            <label class="slds-p-around_x-small"><input type="checkbox" checked>Delete Folder</label>
+                                            <label class="slds-p-around_x-small"><input type="checkbox" checked>Modify Index</label>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
         </div>
-    </lightning-card>
+    </c-layout-component>
 </template>

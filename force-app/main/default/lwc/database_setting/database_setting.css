@@ -1,0 +1,51 @@
+.data-management {
+    padding: 20px;
+    background-color: white;
+}
+
+.database-card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-column, .right-column {
+    width: 45%;
+    justify-content: space-between;
+}
+
+p {
+    margin: 5px 0;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.action-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .right-column {
+        flex-direction: column; /* For smaller screens, stack the columns vertically */
+    }
+
+    .left-column {
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+}

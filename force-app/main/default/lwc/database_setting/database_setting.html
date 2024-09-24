@@ -1,0 +1,36 @@
+<template>
+    <c-layout-component>
+        <div class="data-management">
+            <h2>Data Management</h2>
+            <p>Overview all database created under your account.</p>
+            <hr>
+    
+            <!-- Show databases if there is no error -->
+            <template if:true={databases}>
+                <template for:each={databases} for:item="db">
+                    <!-- Use a unique key (e.g., db.connection or another unique field) -->
+                    <div class="database-card" key={db.id}>
+                        <div class="left-column">
+                            <p><b>Connection:</b> {db.connection}</p>
+                            <p><b>Database Name:</b> {db.schema}</p>
+                            <p><b>Port:</b> {db.port}</p>
+                            <p><b>Hosting:</b> {db.host}</p>
+                            <p><b>Created Date:</b> {db.created_at}</p>
+                        </div>
+                        <div class="right-column">
+                            <p><b>Organization Name:</b> {db.setting.organization_name}</p>
+                            <p><b>Expired Date:</b> {db.license.expired_date}</p>
+                            <p><b>No. of Users:</b> {db.license.number_of_users}</p>
+                        </div>
+                    </div>
+                
+                </template>
+                <!-- <div class="action-icons">
+                    <lightning-icon icon-name="utility:edit" size="small" alternative-text="Edit" class="icon"></lightning-icon>
+                    <lightning-icon icon-name="utility:file" size="small" alternative-text="File" class="icon"></lightning-icon>
+                </div> -->
+            </template>
+        </div>
+
+    </c-layout-component>
+</template>

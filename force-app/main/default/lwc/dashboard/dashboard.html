@@ -1,88 +1,54 @@
 <template>
-    <div class="slds-grid">
-        <!-- Sidebar with Logo and Menu inside a lightning-card -->
-        <div class="sidebar slds-size_1-of-4">
-            <lightning-card>
-                <!-- Logo at the top -->
-                <div class="logo-container">
-                    <img src={logoUrl} alt="Company Logo" class="company-logo"/>
-                </div>
-                <!-- Sidebar Menu Items -->
-                <div class="sidebar-container">
-                    <!-- Dashboard Button -->
-                    <lightning-button class="slds-button" variant="base"
-                                      icon-name="utility:home" label="Dashboard" icon-position="left"
-                                      onclick={navigateToDashboard}></lightning-button>
-                
-                    <!-- Drawer Management Button -->
-                    <lightning-button class="slds-button" variant="base"
-                                      icon-name="utility:file" label="Drawer Management" icon-position="left"
-                                      onclick={navigateToDrawerManagement}></lightning-button>
-                
-                    <!-- User Management Button -->
-                    <lightning-button class="slds-button" variant="base"
-                                      icon-name="utility:groups" label="User Management" icon-position="left"
-                                      onclick={navigateToUserManagement}></lightning-button>
-                
-                    <!-- Settings Button with Dropdown -->
-                    <lightning-button-menu alternative-text="Settings" variant="base"
-                                           icon-name="utility:settings" 
-                                           label="Settings" 
-                                           icon-position="left" 
-                                           class="slds-button-menu">
-                        <lightning-menu-item label="Database Settings" value="dbSettings" icon-name="utility:database"></lightning-menu-item>
-                        <lightning-menu-item label="Preferences Settings" value="prefSettings" icon-name="utility:settings"></lightning-menu-item>
-                        <lightning-menu-item label="Account Settings" value="accSettings" icon-name="utility:user"></lightning-menu-item>
-                    </lightning-button-menu>
-                </div>
-            </lightning-card>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content slds-size_3-of-4">
-            <lightning-card title={cardTitle} icon-name="standard:dashboard">
-                <div class="slds-grid slds-wrap slds-p-around_medium">
-                    <!-- Statistics Section -->
-                    <div class="slds-col slds-size_1-of-3">
-                        <lightning-tile label="Number of Drawers">
-                            <p>{drawerCount}</p>
-                        </lightning-tile>
-                    </div>
-                    <div class="slds-col slds-size_1-of-3">
-                        <lightning-tile label="Number of Folders">
-                            <p>{folderCount}</p>
-                        </lightning-tile>
-                    </div>
-                    <div class="slds-col slds-size_1-of-3">
-                        <lightning-tile label="Number of Users">
-                            <p>{userCount}</p>
-                        </lightning-tile>
-                    </div>
-                </div>
-            
-                <!-- Quick Actions Section -->
-                <div class="slds-grid slds-wrap slds-p-around_medium">
-                    <lightning-card title="Quick Actions">
-                        <div class="button-container">
-                            <lightning-button label="Create New Drawer" icon-name="utility:add" variant="neutral" onclick={handleCreateDrawer}></lightning-button>
-                            <lightning-button label="Create New User" icon-name="utility:adduser" variant="neutral" onclick={handleCreateUser}></lightning-button>
-                            <lightning-button label="Import Folder" icon-name="utility:upload" variant="neutral" onclick={handleImportFolder}></lightning-button>
-                            <lightning-button label="Generate Audit Report" icon-name="utility:report_issue" variant="neutral" onclick={handleGenerateReport}></lightning-button>
+    <c-layout-component>
+        <lightning-card>
+            <div class="height">
+            <p class="title">{cardTitle}</p>
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-card class="custom-card">
+                        <div class="card-content">
+                            <lightning-icon icon-name="standard:work_contract" class="card-icon"></lightning-icon>
+                            <div class="card-text">
+                                <p class="count-text">{drawerCount}</p>
+                                <p class="description-text">Number of Drawers</p>
+                            </div>
                         </div>
                     </lightning-card>
-                    
                 </div>
-
-                <template if:true={allUserNames}>
-                    <lightning-card title="All Users" class="all-users-list">
-                        <ul>
-                            <template for:each={allUserNames} for:item="userName">
-                                <li key={userName}>{userName}</li>
-                            </template>
-                        </ul>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-card class="custom-card">
+                        <div class="card-content">
+                            <lightning-icon icon-name="standard:folder" class="card-icon"></lightning-icon>
+                            <div class="card-text">
+                                <p class="count-text">{folderCount}</p>
+                                <p class="description-text">Number of Folders</p>
+                            </div>
+                        </div>
                     </lightning-card>
-                </template>
-            </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-card class="custom-card">
+                        <div class="card-content">
+                            <lightning-icon icon-name="standard:user" class="card-icon"></lightning-icon>
+                            <div class="card-text">
+                                <p class="count-text">{userCount}</p>
+                                <p class="description-text">Number of Users</p>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <lightning-card title="Quick Actions">
+                    <div class="button-container">
+                        <lightning-button label="Create New Drawer" icon-name="utility:add" variant="neutral" onclick={handleCreateDrawer}></lightning-button>
+                        <lightning-button label="Create New User" icon-name="utility:adduser" variant="neutral" onclick={handleCreateUser}></lightning-button>
+                        <lightning-button label="Import Folder" icon-name="utility:upload" variant="neutral" onclick={handleImportFolder}></lightning-button>
+                        <lightning-button label="Generate Audit Report" icon-name="utility:report_issue" variant="neutral" onclick={handleGenerateReport}></lightning-button>
+                    </div>
+                </lightning-card>
+            </div>
         </div>
-    </div>
+        </lightning-card>
+    </c-layout-component>
 </template>

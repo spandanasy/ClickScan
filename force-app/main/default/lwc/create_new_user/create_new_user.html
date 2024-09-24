@@ -1,0 +1,236 @@
+
+<template>
+    <c-layout-component>
+        <div class="slds-box slds-theme_default slds-p-around_medium">
+            <div class="main-save">
+                <div style="display: flex; align-items: center; margin-top: 20px;">
+                    <div class="icon-container">
+                        <lightning-icon 
+                            icon-name="utility:back" 
+                            alternative-text="Go back" 
+                            size="small" 
+                            class="slds-m-right_small"
+                            style="cursor: pointer;" 
+                            onclick={showConfirmationPopup}>
+                        </lightning-icon>
+                    </div>
+                
+                    <!-- Confirmation Modal -->
+                    <template if:true={isModalOpen}>
+                        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <header class="slds-modal__header">
+                                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                    <h2 class="slds-text-heading_medium">Confirmation</h2>
+                                </header>
+                                <div class="slds-modal__content slds-p-around_medium" style="font-size:16px;">
+                                    <p>Are you sure you want to cancel creating this drawer?</p>
+                                </div>
+                                
+                                <footer class="slds-modal__footer">
+                                    <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                    font-size: 16px; font-weight:bold; cursor: pointer; margin-right:20px;" 
+                                    onclick={handleGoBack}>Yes</button>
+                        
+                                    <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                    font-size: 16px; font-weight:bold; cursor: pointer; margin-right:20px;" 
+                                    onclick={closePageModal}>No</button>
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </template>
+                    <h2 class="slds-text-heading_medium" style="font-weight: bold;">Create New Drawer</h2>
+                </div>
+
+                <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; 
+                border-radius: 20px; font-size: 16px;font-weight:bold; cursor: pointer;right:0px; margin-top:20px" 
+                onclick={handleSaveClick}>Save
+                </button>
+            
+                <!-- Success Modal -->
+                <template if:true={isSuccessModalVisible}>
+                    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 class="slds-text-heading_medium">Success</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" style="font-size:16px;">
+                                <p>Drawer created successfully!</p>
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                font-size: 16px; font-weight: bold; cursor: pointer; margin-right: 20px;" onclick={handleGoBack}>
+                                Go to Drawer Management
+                                </button>
+                                <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                font-size: 16px; font-weight: bold; cursor: pointer;" onclick={closeModal}>
+                                    Close
+                                </button>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </template>
+
+                <!-- Error Modal -->
+                <template if:true={isErrorModalVisible}>
+                    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 class="slds-text-heading_medium">Error</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" style="font-size:16px;">
+                                <p>Error creating drawer: {errorMessage}</p>
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                font-size: 16px; font-weight: bold; cursor: pointer;" onclick={closeModal}>
+                                    Close
+                                </button>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </template>
+                
+            </div>
+            <hr class="styled-hr">
+            <h3 class="slds-text-heading_medium slds-m-bottom_medium" style="font-weight: bold;">Add Drawer Information</h3>
+            <div class="slds-m-bottom_medium">
+                <label for="name" style="font-size: 16px;" >Name</label>
+                <div>
+                <input type="text" id="name" onchange={handleusernameChange} placeholder="Enter a name" required
+                style="width: 100%;font-size:16px; height: 35px" ></input>
+                </div>                   
+            </div>
+
+            <div class="slds-m-bottom_medium">
+                <label for="description" style="font-size: 16px;" > Description</label>
+                <div>
+                <textarea id="description" onchange={handledescriptionChange} placeholder="Enter Description" rows="3" 
+                style="width: 100%;font-size:16px; height: 80px"></textarea>
+                </div>
+            </div>
+            <h3 class="slds-text-heading_medium slds-m-bottom_medium" style="font-weight: bold;">Create index fields</h3>
+                        <div class="slds-grid slds-wrap custom-width-container">
+             
+                            <div class="slds-col slds-size_1-of-3 slds-p-around_medium create-index-container">
+                                <div class="custom-label-container">
+                                    <label style="font-size: 16px;">Field Name</label>
+                                    <lightning-input class="slds-text-heading_medium" value={fieldName} onchange={handleFieldNameChange} placeholder="Enter a field name" style="font-size: 16px; margin-top: -15px; margin-bottom: 10px" ></lightning-input>
+                                    <div class="slds-grid slds-gutters">
+                                        <!-- Field Type -->
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label style="font-size: 16px;">Field Type</label>
+                                            <lightning-combobox class="slds-text-heading_medium" value={fieldType} options={fieldTypeOptions} onchange={handleFieldTypeChange} style="font-size: 16px; margin-top: -10px; margin-bottom: 10px" ></lightning-combobox>
+                                        </div>
+                                    
+                                        <!-- Width -->
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label style="font-size: 16px;">Width</label>
+                                            <lightning-input class="slds-text-heading_medium" type="number" value={fieldWidth} onchange={handleFieldWidthChange} style="font-size: 16px; margin-top: -10px; " ></lightning-input>
+                                        </div>
+                                    </div>
+                                    <label style="font-size: 16px;">Format</label>
+                                    <lightning-combobox class="slds-text-heading_medium" value={fieldFormat} options={fieldFormatOptions} onchange={handleFieldFormatChange} style="font-size: 16px; margin-top: -15px; margin-bottom: 10px" ></lightning-combobox>
+                                    <div class="slds-m-top_medium">
+                                    <label class="slds-form-element__label" >Red Flag</label>
+                                    <div class="slds-grid slds-wrap slds-gutters">
+                                        <!-- First Row -->
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Required" checked={required} onchange={handleRequiredChange}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Unique Key" checked={uniqueKey} onchange={handleUniqueKeyChange}></lightning-input>
+                                        </div>
+                                    
+                                        <!-- Second Row -->
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Key Reference" checked={keyReference} onchange={handleKeyReferenceChange}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Auto Index" checked={autoIndex} onchange={handleAutoIndexChange}></lightning-input>
+                                        </div>
+                                    
+                                        <!-- Third Row -->
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Data Stamp" checked={dataStamp} onchange={handleDataStampChange}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input type="checkbox" label="Data Reference" checked={dataReference} onchange={handleDataReferenceChange}></lightning-input>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <button style="background-color: #213ce8; color: white; border: none; padding: 10px 20px; border-radius: 20px; 
+                                font-size: 16px; font-weight: bold; cursor: pointer; justify-content: center; width: 100%; 
+                                margin-top: 20px;" onclick={handleInsert} disabled={isButtonDisabled}>+ Insert
+                                </button>
+
+                            </div>
+                                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead class="custom-thead">
+                                        <tr class="slds-theme_shade">
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Field Name">Field Name</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Field Type">Field Type</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Width">Width</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Required">Required</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Unique">Unique</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Action">Action</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <template if:true={fields.length}>
+                                            <template for:each={fields} for:item="field">
+                                                <tr key={field.id}>
+                                                    <td style="text-align: center;">{field.name}</td>
+                                                    <td style="text-align: center;">{field.type}</td>
+                                                    <td style="text-align: center;">{field.width}</td>
+                                                    <td style="text-align: center;">{field.required}</td>
+                                                    <td style="text-align: center;">{field.unique}</td>
+                                                    <td style="text-align: center;">
+                                                        <lightning-button-icon icon-name="utility:edit" alternative-text="Edit" onclick={handleEdit} data-id={field.id} ></lightning-button-icon>
+                                                        <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={handleDelete} data-id={field.id}></lightning-button-icon>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </template>
+                                        <template if:false={fields.length}>
+                                            <tr>
+                                                <td colspan="6" class="slds-text-align_center">
+                                                    <lightning-icon icon-name="utility:inbox" size="large" alternative-text="No data"></lightning-icon>
+                                                    <p>No data</p>
+                                                </td>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>            
+    </div>
+    </c-layout-component>
+</template>

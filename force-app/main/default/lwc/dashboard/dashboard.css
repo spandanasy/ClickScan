@@ -1,87 +1,44 @@
-/* Sidebar styling */
-.slds-grid > .slds-size_1-of-4
+/* General card styling */
+.custom-card {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align items to the start */
+    padding: 1rem; /* Add padding inside the card */
+    background-color: #ffffff; /* Set background color */
+    border: 1px solid #d8dde6; /* Add border */
+    border-radius: 0.25rem; /* Round the corners */
+}
+
+/* Container for card content */
+.card-content {
+    
+    flex-direction: column; /* Align items vertically centered */
+}
+
+.card-content lightning-icon
 {
-    flex-direction: row;
-}
-.slds-grid > .slds-size_1-of-4,
-.slds-grid > .slds-size_3-of-4
-{
-    display: flex;
-    flex-direction: column;
-}
-.sidebar lightning-card,
-.main-content lightning-card
-{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.sidebar
-{
-    padding: 0;
-    margin-left: 0;
-}
-.sidebar lightning-card {
-    width: 100%; 
-    background-color: white;
-    border-radius: 0; 
-    box-shadow: none; 
-    border: none; 
-    padding: 0; 
-    margin: 0;
+    margin-bottom: 1rem;
 }
 
-.logo-container {
-    margin: 0;
-    text-align: start; 
-    padding-top: 0;
+/* Text container styling */
+.card-text {
+    
+    flex-direction: column; /* Stack text vertically */
 }
 
-.company-logo {
-    max-width: 150px;
-    height: auto;
-    padding-left: 5px;
-}
-/* Style for the sidebar container */
-.sidebar-container {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    gap: 20px;
-    padding-top: 20px;
+/* Count text styling */
+.count-text {
+    font-size: 1.5rem; /* Increase font size for count */
+    font-weight: bold; /* Make text bold */
+    color: #0070d2; /* Set text color to blue */
+    margin-bottom: 1rem; /* Remove margin */
 }
 
-/* Main content styling */
-.main-content {
-    padding: 0;
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-.slds-card__header-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #0070d2;
-}
-
-/* Tile styling */
-.slds-tile {
-    padding: 10px;
-    background-color: #f4f6f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-}
-
-.slds-tile label {
-    font-size: 1rem;
-    color: #333;
-    font-weight: bold;
-}
-
-.slds-tile p {
-    font-size: 1.5rem;
-    color: #0070d2;
-    font-weight: 500;
+/* Description text styling */
+.description-text {
+    font-size: 1rem; /* Set font size for description */
+    color: #333; /* Set color for description text */
+    margin: 0; /* Remove margin */
 }
 
 /* Quick actions buttons */
@@ -110,8 +67,13 @@
 .lightning-button:active {
     background-color: #003e7e;
 }
+.title {
+    font-weight: bold; /* Makes the text bold */
+    text-align: right; /* Aligns the text to the right */
+    margin-right: 5px; /* Optional: Removes any extra right margin */
+}
 
-/* User list styling */
+/* User list styling
 .all-users-list {
     margin-top: 20px;
     padding: 10px;
@@ -136,4 +98,4 @@
 
 .all-users-list li:not(:last-child) {
     border-bottom: 1px solid #ddd;
-}
+} */

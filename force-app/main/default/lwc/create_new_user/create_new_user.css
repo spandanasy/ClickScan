@@ -1,0 +1,54 @@
+.main-save {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /*c Space between items */
+    margin-bottom: 20px;
+}
+.styled-hr {
+    border: none; /* Remove default border */
+    border-top: 2px solid black; /* Set the line color and thickness */
+    margin: 20px 0; /* Adjust top and bottom margins */
+    width: 100%; /* Set the width of the line */
+}
+
+
+.custom-width-container {
+    display: flex; /* Ensure children are laid out side by side */
+    align-items: flex-start;
+    width: 350px;              /* Fixed width */
+    max-width: 100%;           /* Responsive within its parent */
+    padding: 16px;             /* Space inside the container */
+    background-color:white; /* Light background color */
+    border-radius: 12px;       /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-sizing: border-box;    /* Includes padding and border in the width */
+    border: 1px solid #ddd;    /* Optional border to define the container */
+    margin-bottom: 40px;
+}
+
+.custom-thead th {
+    padding: 0 20px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: lightblue;
+    height: 40px;
+}
+
+.create-index-container{
+    width: 100%;
+}
+
+.slds-table {
+    margin-left: 400px;
+    margin-top: -415px;
+    height: 100px;
+    width: 660px;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+}
+
+.slds-form-element__label {
+    font-size: 16px; /* Adjust as needed */
+}
+
