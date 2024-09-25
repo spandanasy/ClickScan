@@ -1,5 +1,5 @@
 import { LightningElement,track, wire,api } from 'lwc';
-// import logo from '@salesforce/resourceUrl/clickScan';
+import logo from '@salesforce/resourceUrl/click_scan';
 import icon from '@salesforce/resourceUrl/user_icon';
 import getDrawers from '@salesforce/apex/getUsersLists.getDrawers';
 import getDrawerById from '@salesforce/apex/getUsersInfo.getDrawerById';
@@ -290,9 +290,9 @@ fetchUserDetails() {
         });
     }
 
-    // get logoUrl() {
-    //     return logo;
-    // }
+    get logoUrl() {
+        return logo;
+    }
 
     globalPermissions = [
         'Display',

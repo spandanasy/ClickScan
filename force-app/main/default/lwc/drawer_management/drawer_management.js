@@ -1,5 +1,5 @@
 import { LightningElement, track,wire } from 'lwc';
-// import logo from '@salesforce/resourceUrl/clickScan';
+import logo from '@salesforce/resourceUrl/click_scan';
 import getDrawers from '@salesforce/apex/getDrawerList.getDrawers';
 import removeDrawer from '@salesforce/apex/RemoveDrawerId.removeDrawer';
 import createDuplicateDrawer from '@salesforce/apex/DuplicateDrawerController.createDuplicateDrawer';
@@ -11,7 +11,7 @@ const DELAY = 300;
 export default class DrawerManagementApp extends NavigationMixin(LightningElement) {
     @track isOpen = false;
 
-    // logoUrl = logo;
+    logoUrl = logo;
 
     //spanda code
     @track drawers = []; // To store the fetched drawer data

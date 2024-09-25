@@ -1,9 +1,9 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-// import logo from '@salesforce/resourceUrl/clickScan';
+import logo from '@salesforce/resourceUrl/click_scan';
 
 export default class LayoutComponent extends NavigationMixin(LightningElement) {
-    // logoUrl = logo;
+    logoUrl = logo;
     navigateToDashboard() {
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
