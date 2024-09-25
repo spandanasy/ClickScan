@@ -1,5 +1,5 @@
 import { LightningElement, track,wire } from 'lwc';
-import logo from '@salesforce/resourceUrl/clickScan';
+import logo from '@salesforce/resourceUrl/click_scan';
 import getDrawers from '@salesforce/apex/getDrawerList.getDrawers';
 import removeDrawer from '@salesforce/apex/RemoveDrawerId.removeDrawer';
 import createDuplicateDrawer from '@salesforce/apex/DuplicateDrawerController.createDuplicateDrawer';

@@ -1,6 +1,6 @@
 
 import { LightningElement, track} from 'lwc';
-import logo from '@salesforce/resourceUrl/clickScan';
+import logo from '@salesforce/resourceUrl/click_scan';
 import createDrawer from '@salesforce/apex/CreateNewDrawerController.createDrawer';
 export default class DrawerManagement extends LightningElement {
 
