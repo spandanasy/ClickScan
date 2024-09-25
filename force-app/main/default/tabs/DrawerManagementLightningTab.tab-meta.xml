@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>DrawerManagementLightningTab</fullName>
-    <label>Drawer Management</label>
-    <customObject>false</customObject>
-    <description>Tab for Drawer Management LWC Component</description>
-    <lwcComponent>drawer_management</lwcComponent>
-    <mobileReady>true</mobileReady>
-</CustomTab>

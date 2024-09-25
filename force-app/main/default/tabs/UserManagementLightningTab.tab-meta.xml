@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>UserManagementLightningTab</fullName>
-    <label>User Management</label>
-    <customObject>false</customObject>
-    <description>Tab for User Management LWC Component</description>
-    <lwcComponent>user_management</lwcComponent>
-    <mobileReady>true</mobileReady>
-</CustomTab>

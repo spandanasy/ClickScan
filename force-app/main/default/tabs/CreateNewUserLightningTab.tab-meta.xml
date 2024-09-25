@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>CreateNewUserLightningTab</fullName>
-    <label>Create New User</label>
-    <customObject>false</customObject>
-    <description>Tab for Create New User LWC Component</description>
-    <lwcComponent>create_new_user</lwcComponent>
-    <mobileReady>true</mobileReady>
-</CustomTab>
