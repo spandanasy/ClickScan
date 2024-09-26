@@ -1,5 +1,5 @@
 import { LightningElement, wire } from 'lwc';
-import logo from '@salesforce/resourceUrl/click_scan';
+import logo from '@salesforce/resourceUrl/clickScan';
 import getDatabaseDetails from '@salesforce/apex/DatabaseController.getDatabaseDetails';
 
 export default class DatabaseDetails extends LightningElement {

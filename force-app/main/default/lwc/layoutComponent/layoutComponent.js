@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import logo from '@salesforce/resourceUrl/click_scan';
+import logo from '@salesforce/resourceUrl/clickScan';
 
 export default class LayoutComponent extends NavigationMixin(LightningElement) {
     logoUrl = logo;

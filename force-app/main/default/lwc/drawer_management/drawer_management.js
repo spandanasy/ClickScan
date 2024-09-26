@@ -1,7 +1,7 @@
 import { LightningElement, track,wire } from 'lwc';
-import logo from '@salesforce/resourceUrl/click_scan';
+import logo from '@salesforce/resourceUrl/clickScan';
 import getDrawers from '@salesforce/apex/getDrawerList.getDrawers';
-import removeDrawer from '@salesforce/apex/RemoveDrawerId.removeDrawer';
+import removeDrawer from '@salesforce/apex/RemoveDrawerID.removeDrawer';
 import createDuplicateDrawer from '@salesforce/apex/DuplicateDrawerController.createDuplicateDrawer';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex'; // Import refreshApex

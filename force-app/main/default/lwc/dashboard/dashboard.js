@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import logo from '@salesforce/resourceUrl/click_scan';
+import logo from '@salesforce/resourceUrl/clickScan';
 import getOrgAndUserInfo from '@salesforce/apex/OrganizationUserController.getOrgAndUserInfo';
 import getDashboardData from '@salesforce/apex/DrawerController.getDashboardData';  // Import the method
 

@@ -1,46 +1,5 @@
 <template>
     <div class="slds-grid">
-        <!-- Sidebar with Logo and Menu inside a lightning-card -->
-        <div class="sidebar slds-size_1-of-4">
-            <lightning-card>
-                <div class="logo-container">
-                    <img src={logoUrl} alt="Company Logo" class="company-logo"/>
-                </div>
-                <nav class="slds-m-top_large">
-                    <a href="/lightning/page/home" class="slds-grid slds-p-around_small slds-text-link_reset slds-theme_shade nav-link" onclick={navigateToDashboard}>
-                        <lightning-icon icon-name="utility:home" alternative-text="Dashboard" size="small" class="slds-m-right_small drawer-icon" onclick={navigateToDashboard}></lightning-icon>
-                        <span>Dashboard</span>
-                    </a>
-                    <a href="/lightning/n/Drawer_Management" class="slds-grid slds-p-around_small slds-text-link_reset slds-theme_shade nav-link" onclick={navigateToDrawerManagement}>
-                        <lightning-icon icon-name="utility:apps" alternative-text="Drawer Management" size="small" class="slds-m-right_small drawer-icon" onclick={navigateToDrawerManagement}></lightning-icon>
-                        <span>Drawer Management</span>
-                    </a>
-                    <a href="/lightning/n/User_Management" class="slds-grid slds-p-around_small slds-text-link_reset slds-theme_shade nav-link" onclick={navigateToUserManagement}>
-                        <lightning-icon icon-name="utility:groups" alternative-text="User Management" size="small" class="slds-m-right_small drawer-icon" onclick={navigateToUserManagement}></lightning-icon>
-                        <span>User Management</span>
-                    </a>
-                    <a href="/lightning/n/User_Management" class="slds-grid slds-p-around_small slds-text-link_reset slds-theme_shade nav-link" onclick={navigateToUserManagement}>
-                        <lightning-icon icon-name="utility:open_folder" alternative-text="User Management" size="small" class="slds-m-right_small drawer-icon" onclick={navigateToUserManagement}></lightning-icon>
-                        <span>Folder Management</span>
-                    </a>
-                    
-                    <div class="navigate">
-                        <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox" style="display: none;">
-                        <label for="dropdown-toggle" class="dropdown-label slds-grid slds-text-link_reset">
-                            <lightning-icon icon-name="utility:settings" alternative-text="Settings" size="small" class="slds-m-right_small drawer-icon"></lightning-icon>
-                            <span>Settings</span>
-                            <lightning-icon icon-name="utility:chevrondown" alternative-text="Dropdown" size="x-small" class="slds-m-left_small"></lightning-icon>
-                        </label>
-                        <div class="dropdown-content">
-                            <a href="/lightning/n/Database_setting">Database Settings</a>
-                            <a href="#">Preference Settings</a>
-                            <a href="#">Account Settings</a>
-                        </div>
-                    </div>
-                </nav>
-            </lightning-card>
-        </div>
-
         <!-- Main Content Slot -->
         <div class="main-content slds-size_3-of-4">
             <slot></slot>
