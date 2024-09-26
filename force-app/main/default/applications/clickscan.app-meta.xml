@@ -344,11 +344,18 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>Tab</actionName>
-        <content>sample</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <content>Drawer_Management</content> <!-- Use the API name of your app page -->
+        <formFactor>Large</formFactor> <!-- Choose Large or Small based on your requirements -->
+        <pageOrSobjectType>standard-app</pageOrSobjectType> <!-- Use 'standard-app' for app pages -->
         <type>Flexipage</type>
-        <profile>Work.com Only User</profile>
+        <profile>Work.com Only User</profile> <!-- Specify the appropriate profile -->
+    </profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Drawer_Management</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-app</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Force.com - Free User</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>Drawer_Management</tabs>
