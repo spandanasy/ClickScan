@@ -4,12 +4,56 @@
     <uiType>Lightning</uiType>
     <navType>Standard</navType>
     <formFactors>Large</formFactors>
+    <!-- Home page action override -->
+    <actionOverrides>
+        <actionName>Home</actionName>
+        <comment>Home page override to display dashboard.</comment>
+        <content>sample</content> <!-- Replace with your Dashboard page API name -->
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+
+    <!-- App pages action overrides -->
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder on activation. Added manually because this isn't registered by force:source:pull.</comment>
+        <comment>Action override for App Page 1.</comment>
+        <content>Drawer_Management</content> <!-- Replace with your actual app page API name -->
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>Account</pageOrSobjectType>
     </actionOverrides>
+
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override for App Page 2.</comment>
+        <content>create_new_user</content> <!-- Replace with your actual app page API name -->
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override for App Page 2.</comment>
+        <content>User_Management</content> <!-- Replace with your actual app page API name -->
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override for App Page 2.</comment>
+        <content>Database_setting</content> <!-- Replace with your actual app page API name -->
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+
+    <!-- Add other overrides as necessary for other pages -->
 </CustomApplication>
