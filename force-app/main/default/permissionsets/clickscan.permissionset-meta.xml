@@ -3,7 +3,7 @@
     <label>Clickscan Permissions</label>
     <applicationVisibilities>
         <application>Clickscan</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
 </PermissionSet>
