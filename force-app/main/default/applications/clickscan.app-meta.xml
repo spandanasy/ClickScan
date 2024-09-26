@@ -355,5 +355,4 @@
     <tabs>User_Management</tabs>
     <tabs>Database_setting</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Dreamhouse_UtilityBar</utilityBar>
 </CustomApplication>
