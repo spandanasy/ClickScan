@@ -3,15 +3,14 @@
     <label>Clickscan</label>
     <uiType>Lightning</uiType>
     <navType>Standard</navType>
+    <formFactors>Large</formFactors>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment
-        >Action override created by Lightning App Builder on activation. Added manually because this isn't registered by force:source:pull.</comment>
+        <comment>Action override created by Lightning App Builder on activation. Added manually because this isn't registered by force:source:pull.</comment>
         <content>Account_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>Account</pageOrSobjectType>
     </actionOverrides>
-
 </CustomApplication>
