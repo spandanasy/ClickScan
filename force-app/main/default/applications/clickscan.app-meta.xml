@@ -12,7 +12,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>standard__AppPage</pageOrSobjectType>
+        <pageOrSobjectType/>
     </actionOverrides>
 
     <!-- App pages action overrides -->
@@ -23,7 +23,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>standard__AppPage</pageOrSobjectType>
+        <pageOrSobjectType/>
     </actionOverrides>
 
     <actionOverrides>
@@ -33,7 +33,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>standard__AppPage</pageOrSobjectType>
+        <pageOrSobjectType/>
     </actionOverrides>
 
     <actionOverrides>
@@ -43,7 +43,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>standard__AppPage</pageOrSobjectType>
+        <pageOrSobjectType/>
     </actionOverrides>
 
     <actionOverrides>
@@ -53,7 +53,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>standard__AppPage</pageOrSobjectType>
+        <pageOrSobjectType/>
     </actionOverrides>
 
     <!-- Add other overrides as necessary for other pages -->
