@@ -1,0 +1,113 @@
+<template>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <!-- Modal Header with Tabs -->
+                <header class="slds-modal__header">
+                    <lightning-tabset active-tab-value={activeTab}>
+                        <lightning-tab label="Create Storage" value="create" onactive={handleTabChange}></lightning-tab>
+                        <lightning-tab label="List of Storage" value="list" onactive={handleTabChange}></lightning-tab>
+                    </lightning-tabset>
+
+                    <button class="slds-button slds-button_icon slds-modal__close" onclick={handleStorageCloseModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"></lightning-icon>
+                    </button>
+                </header>
+
+                <!-- Modal Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+
+                    <!-- CREATE STORAGE TAB -->
+                    <template if:true={isCreateTab}>
+                        <lightning-input 
+                            type="text" 
+                            label="Batch Name" 
+                            value={batchName}
+                            onchange={handleNameChange}>
+                        </lightning-input>
+
+                        <lightning-input 
+                            type="file"
+                            label="Upload Files"
+                            multiple
+                            onchange={handleFileSelection}>
+                        </lightning-input>
+                        <p>{fileCountLabel}</p>
+
+                        <lightning-button 
+                            label="Create & Upload"
+                            variant="brand"
+                            class="slds-m-top_small"
+                            onclick={handleCreateAndUpload}>
+                        </lightning-button>
+                    </template>
+
+                    <!-- LIST STORAGE TAB -->
+                    <template if:true={isListTab}>
+                        <template if:true={storages}>
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th scope="col">
+                                            <div class="slds-truncate">Storage Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate">Last Modified</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate">Page</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate">Actions</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={storages} for:item="item">
+                                        <tr key={item.id}>
+                                            <td>{item.name}</td>
+                                            <td>{item.created_at}</td>
+                                            <td>{item.countFile}</td>
+                                            <td>
+                                                <lightning-button-icon 
+                                                    icon-name="utility:preview" 
+                                                    alternative-text="View" 
+                                                    class="slds-m-right_x-small"
+                                                    onclick={handleView} 
+                                                    data-id={item.id}>
+                                                </lightning-button-icon>
+                                                <lightning-button-icon 
+                                                    icon-name="utility:edit" 
+                                                    alternative-text="Edit" 
+                                                    class="slds-m-right_x-small"
+                                                    onclick={handleEdit} 
+                                                    data-id={item.id}>
+                                                </lightning-button-icon>
+                                                <lightning-button-icon 
+                                                    icon-name="utility:delete" 
+                                                    alternative-text="Delete"
+                                                    onclick={handleDelete} 
+                                                    data-id={item.id}>
+                                                </lightning-button-icon>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </template>
+                        <template if:false={storages}>
+                            <p class="slds-text-color_weak">No storage records found.</p>
+                        </template>
+                    </template>
+                </div>
+
+                <!-- Modal Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Cancel" onclick={handleStorageCloseModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

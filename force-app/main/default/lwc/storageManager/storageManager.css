@@ -1,0 +1,39 @@
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab-header {
+    display: flex;
+    gap: 1rem; /* space between tabs */
+    justify-content: flex-start; /* ensures left alignment */
+}
+.step-container {
+  margin-bottom: 1.5rem;
+}
+
+.step-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.step-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #000;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.step-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
